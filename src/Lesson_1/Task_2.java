@@ -32,8 +32,7 @@ public class Task_2 {
                 count--;
             }
         } catch (NullPointerException e) {
-
-                e.getMessage();
+            e.getMessage();
         }
     }
 }

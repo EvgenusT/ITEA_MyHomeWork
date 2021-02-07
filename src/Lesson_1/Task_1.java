@@ -5,7 +5,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-public class TaskOne {
+public class Task_1 {
     public static void main(String[] args) {
 
         String dateTime = "2021-02-02T09:45:00";
