@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Task_3_JSON {
 
-    static String fileName = "D:\\outputJSONArray.json";
+    static String fileName = "K:\\outputJSONArray.json";
     static File file = new File(fileName);
     static JSONArray array = new JSONArray();
     static JSONObject obj;
@@ -48,14 +48,13 @@ public class Task_3_JSON {
 
     private static void offAndСreateFile() {
 
-        System.out.println("Программа прервана пользователем. Создан файл: outputJSONArray.json");
-
         try (FileWriter writer = new FileWriter(file, false)) {
+            System.out.println("Программа прервана пользователем. Создан файл: outputJSONArray.json");
             writer.write(String.valueOf(array));
             writer.flush();
 
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            System.err.println(ex.getMessage());
         }
         System.exit(0);
     }
