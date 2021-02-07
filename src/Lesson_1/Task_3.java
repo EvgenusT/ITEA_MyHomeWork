@@ -44,8 +44,12 @@ public class Task_3 {
         try (FileWriter writer = new FileWriter(file, false)) {
 
             for (Map<String, String> d : listMap) {
-                writer.write(String.valueOf(d));
+                writer.write("name = " + d.get("name"));
                 writer.append('\n');
+                writer.append("age = " + d.get("age"));
+                writer.append('\n');
+//                writer.write(String.valueOf(d));
+
             }
             writer.flush();
 
