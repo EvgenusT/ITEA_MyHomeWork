@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Task_3_JSON {
 
-    static String fileName = "K:\\outputJSONArray.json";
+    static String fileName = "src/outputJSONArray.json";
     static File file = new File(fileName);
     static JSONArray array = new JSONArray();
     static JSONObject obj;

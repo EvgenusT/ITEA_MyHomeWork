@@ -1,64 +1,51 @@
 package Lesson_1;
 
+import org.json.simple.JSONObject;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Task_3 {
 
-    static List<Map<String, String>> listMap = new ArrayList<>();
-
-    static String fileName = "D:\\output.json";
+    static String fileName = "src/outputArray.json";
     static File file = new File(fileName);
+    static List<String> acceptedLines = new LinkedList<>();
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws IOException {
         Scanner scan = new Scanner(System.in);
 
         while (true) {
+            String text = scan.nextLine();
+            if (!text.equals("end")) {
+                acceptedLines.add(text);
 
-            Map<String, String> couple = new HashMap<>();
-            System.out.println("Введите имя:");
-            String name = scan.nextLine();
-            if (!name.equals("end")) {
-                couple.put("name", name);
             } else {
-                offAndСreateFile();
+                offAndСreateFile(acceptedLines);
+                break;
             }
-
-            System.out.println("Введите возраст:");
-            String age = scan.nextLine();
-            if (!age.equals("end")) {
-                couple.put("age", age);
-            } else {
-                offAndСreateFile();
-            }
-            listMap.add(couple);
         }
     }
 
-    private static void offAndСreateFile() {
+    private static void offAndСreateFile(List<String> acceptedLines) throws IOException {
+        System.out.println("Программа прервана пользователем. Создан файл: outputArray.json");
+        FileWriter writer = new FileWriter(file, false);
+        JSONObject obj = new JSONObject();
 
-        System.out.println("Программа прервана пользователем. Создан файл: output.json");
-        try (FileWriter writer = new FileWriter(file, false)) {
-
-            for (Map<String, String> d : listMap) {
-                writer.write("name = " + d.get("name"));
-                writer.append('\n');
-                writer.append("age = " + d.get("age"));
-                writer.append('\n');
-//                writer.write(String.valueOf(d));
-
-            }
-            writer.flush();
-
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+        for (String couple : acceptedLines) {
+            String[] arrSplit_2 = couple.split("=");
+            String first = arrSplit_2[0].trim();
+            String second = arrSplit_2[1].trim();
+            obj.put(first, second);
         }
-        System.exit(0);
+        writer.write(String.valueOf(obj));
+        writer.flush();
     }
 }
+
 
 
 

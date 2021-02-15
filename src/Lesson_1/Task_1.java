@@ -8,28 +8,39 @@ import java.time.LocalTime;
 public class Task_1 {
     public static void main(String[] args) {
 
-        String dateTime = "2021-02-02T09:45:00";
-        System.out.println("Проверка рабочее ли время сейчас : " + LocalDateTime.now() + " - " + checkWorkingDay(LocalDateTime.now()));
-        System.out.println("Проверка рабочее ли время: " + dateTime + " - " + checkWorkingDay(LocalDateTime.parse(dateTime)));
+        //задаем любое время и дату для проверки работоспособности программы
+        String dateTime = "2021-02-02T08:29:59";
+
+        System.out.println("Проверка рабочее ли время сейчас : " + LocalDateTime.now() + " - " + check(LocalDateTime.now()));
+        System.out.println("Проверка рабочее ли время: " + dateTime + " - " + check(LocalDateTime.parse(dateTime)));
     }
 
-    private static boolean checkWorkingDay(LocalDateTime locDateTime) {
+    static LocalTime initalTime = LocalTime.of(8, 30, 00);
+    static LocalTime finalTime = initalTime.plus(Duration.ofHours(8).plusMinutes(30));
 
-        boolean timeControl = false;
-
-        LocalTime initalTimeNew = LocalTime.of(locDateTime.getHour(), locDateTime.getMinute());
-
-        LocalTime initalTime = LocalTime.of(8, 29);
-        LocalTime finalTime = initalTime.plus(Duration.ofMinutes(512));
-
-        DayOfWeek dayWeek = locDateTime.getDayOfWeek();
-
-        if ((initalTimeNew.isAfter(initalTime) && initalTimeNew.isBefore(finalTime)) &&
-                !(dayWeek.toString().equals("SATURDAY") || dayWeek.toString().equals("SUNDAY"))) {
-
-            timeControl = true;
+    private static boolean check(LocalDateTime locDateTime) {
+        boolean checkWorkingTimeAndDay = false;
+        if (isWorkingTime(locDateTime) && isWorkingDay(locDateTime)) {
+            checkWorkingTimeAndDay = true;
         }
-
-        return timeControl;
+        return checkWorkingTimeAndDay;
     }
+
+    private static boolean isWorkingTime(LocalDateTime locDateTime) {
+        boolean checkisWorkingTime = false;
+        if (locDateTime.toLocalTime().isAfter(initalTime) && locDateTime.toLocalTime().isBefore(finalTime)) {
+            checkisWorkingTime = true;
+        }
+        return checkisWorkingTime;
+    }
+
+    private static boolean isWorkingDay(LocalDateTime locDateTime) {
+        boolean checkIsWorkingDay = false;
+        DayOfWeek dayWeek = locDateTime.getDayOfWeek();
+        if (!(dayWeek.toString().equals("SATURDAY") || dayWeek.toString().equals("SUNDAY"))) {
+            checkIsWorkingDay = true;
+        }
+        return checkIsWorkingDay;
+    }
+
 }
