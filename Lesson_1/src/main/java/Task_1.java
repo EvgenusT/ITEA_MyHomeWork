@@ -1,5 +1,3 @@
-package Lesson_1;
-
 import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDateTime;

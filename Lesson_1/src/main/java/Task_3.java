@@ -1,6 +1,4 @@
-package Lesson_1;
-
-import org.json.simple.JSONObject;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -11,7 +9,7 @@ import java.util.Scanner;
 
 public class Task_3 {
 
-    static String fileName = "src/outputArray.json";
+    static String fileName = "src/main/resources/outputJsonTask_3.json";
     static File file = new File(fileName);
     static List<String> acceptedLines = new LinkedList<>();
 
@@ -31,7 +29,7 @@ public class Task_3 {
     }
 
     private static void offAndСreateFile(List<String> acceptedLines) throws IOException {
-        System.out.println("Программа прервана пользователем. Создан файл: outputArray.json");
+        System.out.println("Программа прервана пользователем. Создан файл: outputJsonTask_3.json");
         FileWriter writer = new FileWriter(file, false);
         JSONObject obj = new JSONObject();
 

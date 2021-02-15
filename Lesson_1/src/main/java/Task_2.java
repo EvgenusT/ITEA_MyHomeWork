@@ -1,5 +1,3 @@
-package Lesson_1;
-
 import java.io.File;
 
 public class Task_2 {
@@ -8,7 +6,7 @@ public class Task_2 {
 
     public static void main(String[] args) {
         // задаем путь к каталогу для проверки
-        File dir = new File("C://AMD");
+        File dir = new File("D://Games");
         if (!dir.exists()) {
             System.err.println("Путь не найден");
             System.exit(1);

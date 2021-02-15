@@ -1,3 +1,5 @@
+package Task_4;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -12,7 +14,7 @@ public class Main {
 
     private void go(String json) throws IOException {
 
-        RandomAccessFile file = new RandomAccessFile("src/main/java/Lesson_1/Task_4/src/main/resources/nio.json", "rw");
+        RandomAccessFile file = new RandomAccessFile("src/main/resources/nio_Task_4.json", "rw");
         file.seek(0);
         file.writeBytes(json);
         file.close();
@@ -26,12 +28,12 @@ public class Main {
         car.setModel("Camry");
         car.setColors(new String[]{"Red"});
 
-        Lesson_1.Task_4.src.main.java.Speed maxSpeed = new Lesson_1.Task_4.src.main.java.Speed();
+        Speed maxSpeed = new Speed();
         maxSpeed.setUnit("km/h");
         maxSpeed.setValue(220);
         car.setMaxSpeed(maxSpeed);
 
-        Lesson_1.Task_4.src.main.java.Engine engine = new Lesson_1.Task_4.src.main.java.Engine();
+        Engine engine = new Engine();
         engine.setVolume(2.5);
         engine.setRpm(6600);
         engine.setCompressionRatio("11.8:1");
@@ -42,5 +44,4 @@ public class Main {
         String resultCar = objectMapper.writeValueAsString(car);
         return resultCar;
     }
-
 }

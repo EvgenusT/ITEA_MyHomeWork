@@ -1,6 +1,4 @@
-import Lesson_1.Task_4.src.main.java.Engine;
-import Lesson_1.Task_4.src.main.java.SeatingCapacity;
-import Lesson_1.Task_4.src.main.java.Speed;
+package Task_4;
 
 public class Car {
 
