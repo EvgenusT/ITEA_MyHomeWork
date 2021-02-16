@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Lesson_3" />
         <module name="Lesson_1" />
       </profile>
     </annotationProcessing>
@@ -13,6 +14,7 @@
       <module name="ITEA_HomeWork" target="14" />
       <module name="Lesson_1" target="14" />
       <module name="Lesson_2" target="14" />
+      <module name="Lesson_3" target="14" />
     </bytecodeTargetLevel>
   </component>
 </project>
