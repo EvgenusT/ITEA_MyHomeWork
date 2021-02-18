@@ -1,84 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-      
-  <modelVersion>4.0.0</modelVersion>
-      
-  <groupId>itea.MyHomework</groupId>
-      
-  <artifactId>itea-java-advanced</artifactId>
-      
-  <version>1.0</version>
-      
-  <name>MyHomeworkTasks</name>
-      
-  <packaging>pom</packaging>
-      
-  <properties>
-            
-    <maven.compiler.source>14</maven.compiler.source>
-            
-    <maven.compiler.target>14</maven.compiler.target>
-        
-  </properties>
-      
-  <dependencies>
-            
-    <dependency>
-                  
-      <groupId>com.fasterxml.jackson.core</groupId>
-                  
-      <artifactId>jackson-core</artifactId>
-                  
-      <version>2.10.3</version>
-              
-    </dependency>
-            
-    <dependency>
-                  
-      <groupId>com.fasterxml.jackson.core</groupId>
-                  
-      <artifactId>jackson-databind</artifactId>
-                  
-      <version>2.10.3</version>
-              
-    </dependency>
-            
-    <dependency>
-                  
-      <groupId>org.json</groupId>
-                  
-      <artifactId>json</artifactId>
-                  
-      <version>20201115</version>
-              
-    </dependency>
-        
-  </dependencies>
-      
-  <build>
-            
-    <plugins>
-                  
-      <plugin>
-                        
-        <groupId>org.apache.maven.plugins</groupId>
-                        
-        <artifactId>maven-checkstyle-plugin</artifactId>
-                        
-        <version>3.1.2</version>
-                    
-      </plugin>
-              
-    </plugins>
-        
-  </build>
-      
-  <modules>
-            
-    <module>Lesson_1</module>
-          
-    <module>Lesson_3</module>
-      
-  </modules>
-  
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>itea.MyHomework</groupId>
+    <artifactId>itea-java-advanced</artifactId>
+    <version>1.0</version>
+    <name>MyHomeworkTasks</name>
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven.compiler.source>14</maven.compiler.source>
+        <maven.compiler.target>14</maven.compiler.target>
+    </properties>
+    <dependencies>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.10.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.10.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20201115</version>
+        </dependency>
+        <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.11</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.1.2</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <modules>
+        <module>Lesson_1</module>
+        <module>Lesson_3</module>
+    </modules>
 </project>
