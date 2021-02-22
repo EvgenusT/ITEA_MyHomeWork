@@ -21,7 +21,6 @@ public class App {
         System.out.println();
 
         System.out.println("Задание 1.3:");
-        strings.forEach(str -> upperCaseTranslation(str));
         strings.forEach(str -> System.out.print(StringUtils.capitalize((lowerCaseTranslation(str))) + " "));
         System.out.println();
     }
