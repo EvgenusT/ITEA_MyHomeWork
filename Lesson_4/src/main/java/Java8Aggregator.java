@@ -40,7 +40,7 @@ public class Java8Aggregator implements Aggregator {
     public List<String> getDuplicates(List<String> words, long limit) {
 
         try {
-            // групировка
+            // группировка
             Map<String, Long> result = words.stream().map(str -> str.toUpperCase()).
                     collect(Collectors.groupingBy(String::valueOf, Collectors.counting()));
 
