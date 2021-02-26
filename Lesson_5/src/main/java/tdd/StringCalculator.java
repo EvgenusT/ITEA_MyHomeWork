@@ -10,11 +10,11 @@ public class StringCalculator implements Calculator {
     List<Integer> numberNegative = new ArrayList<>();
     List<String> stringList = new ArrayList<>();
     int count = 0;
+
     @Override
     public int add(String numbers) {
         String spliterator = "[^\\d|-]+";
         stringList = Arrays.asList(numbers.split(spliterator));
-        System.out.println(stringList);
         return stringList.stream()
                 .mapToInt(Integer::valueOf)
                 .map(this::validateNumber)
@@ -29,7 +29,7 @@ public class StringCalculator implements Calculator {
         }
         if (stringList.size() == count && !numberNegative.isEmpty()) {
             result = numberNegative.stream().map(String::valueOf).collect(Collectors.joining(", ", message, ""));
-            throw new RuntimeException(String.format(result.toString()));
+            throw new RuntimeException(String.format(result));
         }
         return i;
     }
