@@ -1,6 +1,6 @@
+package tdd;
+
 import org.junit.Test;
-import tdd.Calculator;
-import tdd.StringCalculator;
 
 import java.util.List;
 import java.util.stream.Collectors;
