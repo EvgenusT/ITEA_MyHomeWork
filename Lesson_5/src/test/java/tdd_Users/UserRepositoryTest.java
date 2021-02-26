@@ -10,12 +10,22 @@ import static org.junit.Assert.assertEquals;
 public class UserRepositoryTest {
 
     UserRepository userRepository = new UserRepository();
-    User user = new User(1, "Yarik", 25, Sex.MALE);
-    User user1 = new User(2, "Olga", 50, Sex.FEMALE);
-    User user2 = new User(3, "Alla", 24, Sex.FEMALE);
-    User user3 = new User(4, "Petro", 29, Sex.MALE);
+    User user = new User(1,"Yarik", 25, Sex.MALE);
+    User user1 = new User(2,"Olga", 50, Sex.FEMALE);
+    User user2 = new User(3,"Alla", 24, Sex.FEMALE);
+    User user3 = new User(4,"Petro", 29, Sex.MALE);
 
     List<User> listUsers = new ArrayList<>();
+
+
+    private List<User> creatListUser() {
+        listUsers.add(user);
+        listUsers.add(user1);
+        listUsers.add(user2);
+        listUsers.add(user3);
+        userRepository.addAllUsers(listUsers);
+        return listUsers;
+    }
 
     @Test
     public void shouldCreatingNewUser() {
@@ -24,7 +34,6 @@ public class UserRepositoryTest {
         assertEquals(listUsers, actualList);
     }
 
-    //
     @Test
     public void shouldCreatingListNewUsers() {
         listUsers.add(user1);
@@ -36,11 +45,7 @@ public class UserRepositoryTest {
 
     @Test
     public void shouldGetListAllUsers() {
-        listUsers.add(user);
-        listUsers.add(user1);
-        listUsers.add(user2);
-        listUsers.add(user3);
-        userRepository.addAllUsers(listUsers);
+        creatListUser();
         List<String> expectedlistAllUsers = new ArrayList<>();
         expectedlistAllUsers.add("Yarik");
         expectedlistAllUsers.add("Olga");
@@ -54,11 +59,7 @@ public class UserRepositoryTest {
 
     @Test
     public void shouldGetListAllUsersBySexMale() {
-        listUsers.add(user);
-        listUsers.add(user1);
-        listUsers.add(user2);
-        listUsers.add(user3);
-        userRepository.addAllUsers(listUsers);
+        creatListUser();
         List<String> expectedlistMaleUsers = new ArrayList<>();
         expectedlistMaleUsers.add("Yarik");
         expectedlistMaleUsers.add("Petro");
@@ -68,11 +69,7 @@ public class UserRepositoryTest {
 
     @Test
     public void shouldGetHowManyUsers() {
-        listUsers.add(user);
-        listUsers.add(user1);
-        listUsers.add(user2);
-        listUsers.add(user3);
-        userRepository.addAllUsers(listUsers);
+        creatListUser();
         int expectedAmount = 4;
         int actualAmount = userRepository.getHowManyUsers();
         assertEquals(expectedAmount, actualAmount);
@@ -80,12 +77,7 @@ public class UserRepositoryTest {
 
     @Test
     public void shouldGetHowManyUsersToSex() {
-        listUsers.add(user);
-        listUsers.add(user1);
-        listUsers.add(user2);
-        listUsers.add(user3);
-        userRepository.addAllUsers(listUsers);
-
+        creatListUser();
         long expectedAmountBySex = 2;
         long actualAmountBySex = userRepository.getHowManyUsers(Sex.MALE);
         assertEquals(expectedAmountBySex, actualAmountBySex);
@@ -93,49 +85,31 @@ public class UserRepositoryTest {
 
     @Test
     public void shouldGetAllAgeUsers() {
-        listUsers.add(user);
-        listUsers.add(user1);
-        listUsers.add(user2);
-        listUsers.add(user3);
-        userRepository.addAllUsers(listUsers);
-        long expectedAllAgeUsers = 128;
-        long actualAllAgeUsers = userRepository.getAllAgeUsers();
+        creatListUser();
+        int expectedAllAgeUsers = 128;
+        int actualAllAgeUsers = userRepository.getAllAgeUsers();
         assertEquals(expectedAllAgeUsers, actualAllAgeUsers);
     }
 
     @Test
     public void shouldGetAllAgeUsersBySex() {
-        listUsers.add(user);
-        listUsers.add(user1);
-        listUsers.add(user2);
-        listUsers.add(user3);
-        userRepository.addAllUsers(listUsers);
-        long expectedAllAgeUsers = 74;
-        long actualAllAgeUsers = userRepository.getAllAgeUsers(Sex.FEMALE);
+        creatListUser();
+        int expectedAllAgeUsers = 74;
+        int actualAllAgeUsers = userRepository.getAllAgeUsers(Sex.FEMALE);
         assertEquals(expectedAllAgeUsers, actualAllAgeUsers);
     }
 
     @Test
-    public void shouldGetAverageAgeOfAllUsers(){
-        listUsers.add(user);
-        listUsers.add(user1);
-        listUsers.add(user2);
-        listUsers.add(user3);
-        userRepository.addAllUsers(listUsers);
-
+    public void shouldGetAverageAgeOfAllUsers() {
+        creatListUser();
         double expectedAllAverageAge = 32.00;
         double actualAllAgeUsers = userRepository.getAverageAgeOfAllUsers();
         assertEquals(expectedAllAverageAge, actualAllAgeUsers, 0);
     }
 
     @Test
-    public void shouldGetAverageAgeOfAllUsersBySex(){
-        listUsers.add(user);
-        listUsers.add(user1);
-        listUsers.add(user2);
-        listUsers.add(user3);
-        userRepository.addAllUsers(listUsers);
-
+    public void shouldGetAverageAgeOfAllUsersBySex() {
+        creatListUser();
         double expectedAllAverageAge = 27.00;
         double actualAllAgeUsers = userRepository.getAverageAgeOfAllUsers(Sex.MALE);
         assertEquals(expectedAllAverageAge, actualAllAgeUsers, 0);

@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class UserRepository {
 
-    public List<User> userList = new ArrayList<>();
+    private List<User> userList = new ArrayList<>();
 
     public List<User> addUser(User user) {
         userList.add(user);
@@ -27,12 +27,7 @@ public class UserRepository {
     }
 
     public List<String> getAllUsers(Sex sex) {
-        List<String> listAllUsersBySex = new ArrayList<>();
-        for (User user : userList) {
-            if (user.getSex().equals(sex))
-                listAllUsersBySex.add(user.getName());
-        }
-        return listAllUsersBySex;
+      return userList.stream().filter(s-> s.getSex().equals(sex)).map(User::getName).collect(Collectors.toList());
     }
 
     public int getHowManyUsers() {
@@ -40,22 +35,22 @@ public class UserRepository {
     }
 
     public long getHowManyUsers(Sex sex) {
-        return userList.stream().filter(s -> s.getSex().equals(sex)).collect(Collectors.counting());
+        return userList.stream().filter(s -> s.getSex().equals(sex)).count();
     }
 
-    public long getAllAgeUsers() {
-        return userList.stream().collect(Collectors.summingLong(s -> s.getAge()));
+    public int getAllAgeUsers() {
+        return userList.stream().mapToInt(User::getAge).sum();
     }
 
-    public long getAllAgeUsers(Sex sex) {
-        return userList.stream().filter(s -> s.getSex().equals(sex)).collect(Collectors.summingLong(s -> s.getAge()));
+    public int getAllAgeUsers(Sex sex) {
+        return userList.stream().filter(s -> s.getSex().equals(sex)).mapToInt(User::getAge).sum();
     }
 
     public double getAverageAgeOfAllUsers() {
-        return userList.stream().collect(Collectors.averagingLong(s -> s.getAge()));
+        return userList.stream().collect(Collectors.averagingLong(User::getAge));
     }
 
     public double getAverageAgeOfAllUsers(Sex sex) {
-        return userList.stream().filter(s -> s.getSex().equals(sex)).collect(Collectors.averagingLong(s -> s.getAge()));
+        return userList.stream().filter(s -> s.getSex().equals(sex)).collect(Collectors.averagingLong(User::getAge));
     }
 }

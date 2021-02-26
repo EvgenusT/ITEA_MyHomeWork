@@ -2,7 +2,7 @@ package tdd_Users;
 
 public class User {
 
-    static int id = 0;
+    int id;
     String name;
     int age;
     Sex sex;
