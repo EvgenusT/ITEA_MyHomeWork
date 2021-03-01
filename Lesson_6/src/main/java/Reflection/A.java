@@ -1,4 +1,4 @@
-package ReflectionTask;
+package Reflection;
 
 public class A {
     private String id = "123";

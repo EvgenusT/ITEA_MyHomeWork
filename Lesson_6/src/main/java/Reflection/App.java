@@ -1,4 +1,4 @@
-package ReflectionTask;
+package Reflection;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -30,7 +30,8 @@ public class App {
         String nameValueAfter = (String) name.get(myClass);
         System.out.println("name после изменений: " + nameValueAfter);
         name.setAccessible(false);
+        System.out.println("Обьект класса A после изменений: " + myClass + "\n");
 
-        System.out.println("Обьект класса A после изменений: " + myClass);
     }
+
 }
