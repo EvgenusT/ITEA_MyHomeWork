@@ -37,7 +37,7 @@ public class Packer {
 
     }
 
-    public void repackage(Box<? super Food> to, Box<? extends Bakery> from) {
+    public void repackage(Box <? super Food> to, Box<? extends Food> from) {
         to.put(from.get());
     }
 }
