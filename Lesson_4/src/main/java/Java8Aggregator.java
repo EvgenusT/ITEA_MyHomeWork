@@ -1,6 +1,7 @@
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Java8Aggregator implements Aggregator {
     static List<Integer> numbers = List.of(11, 25, 5, 1, 10, 12);
@@ -16,8 +17,9 @@ public class Java8Aggregator implements Aggregator {
     @Override
     public int sum(List<Integer> numbers) {
         try {
-            return numbers.stream()
-                    .reduce(0, (left, right) -> left + right);
+
+            return IntStream.of(numbers.stream().mapToInt(i -> i).sum()).sum();
+
         } catch (UnsupportedOperationException e) {
             throw new UnsupportedOperationException();
         }
