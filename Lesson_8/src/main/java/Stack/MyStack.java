@@ -1,3 +1,5 @@
+package Stack;
+
 public class MyStack implements MyStackInterface {
 
     private int maxSize;

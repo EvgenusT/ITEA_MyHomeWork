@@ -1,3 +1,5 @@
+package Stack;
+
 public class Main {
     public static void main(String[] args) {
         goMyStack(new MyStack(6));

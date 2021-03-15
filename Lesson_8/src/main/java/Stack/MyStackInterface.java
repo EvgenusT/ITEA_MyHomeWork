@@ -1,3 +1,5 @@
+package Stack;
+
 public interface MyStackInterface {
 
     public int pop();
