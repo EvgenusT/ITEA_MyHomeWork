@@ -1,4 +1,4 @@
-public class MyStack {
+public class MyStack implements MyStackInterface {
 
     private int maxSize;
     private static int[] myStackArray;
@@ -12,45 +12,48 @@ public class MyStack {
         count = 0;
     }
 
-    public void addElement(int element) {
-        myStackArray[++high] = element;
-        ++count;
-        push();
+    @Override
+    public int pop() {
+        int max = peek();
+        deleteElement();
+        return max;
     }
 
-
-    public void deleteElement() {
-        int[] myStackArrayNew = new int[myStackArray.length - 1];
-        System.arraycopy(myStackArray, 0, myStackArrayNew, 0, fillingMyStack() - 1);
-        myStackArray = myStackArrayNew;
-        count--;
-        high--;
-
-    }
-
-    public int readTop() {
-        return myStackArray[high];
-    }
-
-    public boolean isEmpty() {
-        return (high == -1);
-    }
-
-    public int sizeMyStack() {
-        return myStackArray.length;
-    }
-
-    public int fillingMyStack() {
-        return count;
-    }
-
-    public void push() {
+    @Override
+    public void push(int element) {
+        addElement(element);
         if (myStackArray.length == count) {
             increaseSizeMyStack(2 * myStackArray.length);
         }
     }
 
-    public void increaseSizeMyStack(int capacity) {
+    @Override
+    public boolean isEmpty() {
+        return (high == -1);
+    }
+
+    private int peek() {
+        return myStackArray[count - 1];
+    }
+
+    private void addElement(int element) {
+        myStackArray[++high] = element;
+        ++count;
+    }
+
+    private void deleteElement() {
+        int[] myStackArrayNew = new int[myStackArray.length - 1];
+        System.arraycopy(myStackArray, 0, myStackArrayNew, 0, fillingMyStack() - 1);
+        myStackArray = myStackArrayNew;
+        count--;
+        high--;
+    }
+
+    private int fillingMyStack() {
+        return count;
+    }
+
+    private void increaseSizeMyStack(int capacity) {
         int[] myStackArrayCopy = new int[capacity];
 
         for (int i = 0; i < myStackArray.length; i++) {
@@ -58,11 +61,4 @@ public class MyStack {
         }
         myStackArray = myStackArrayCopy;
     }
-
-    public void conclusion() {
-        for (int i : myStackArray)
-            System.out.println(i);
-
-    }
-
 }
