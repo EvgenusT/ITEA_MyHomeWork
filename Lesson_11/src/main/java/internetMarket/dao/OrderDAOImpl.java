@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderDAOImplement implements OrderDAO<Order> {
+public class OrderDAOImpl implements OrderDAO<Order> {
 
     private Order convertToModel(ResultSet resultSet) throws SQLException {
         int userId = resultSet.getInt("user_id");

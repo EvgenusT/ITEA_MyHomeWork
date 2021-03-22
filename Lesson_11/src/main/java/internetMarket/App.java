@@ -1,17 +1,17 @@
 package internetMarket;
 
-import internetMarket.dao.OrderDAOImplement;
-import internetMarket.dao.ProductDAOImplement;
-import internetMarket.dao.UserDAOImplement;
+import internetMarket.dao.OrderDAOImpl;
+import internetMarket.dao.ProductDAOImpl;
+import internetMarket.dao.UserDAOImpl;
 
 import java.time.LocalDate;
 
 public class App {
     public static void main(String[] args) {
 
-        ProductDAOImplement product = new ProductDAOImplement();
-        UserDAOImplement user = new UserDAOImplement();
-        OrderDAOImplement order = new OrderDAOImplement();
+        ProductDAOImpl product = new ProductDAOImpl();
+        UserDAOImpl user = new UserDAOImpl();
+        OrderDAOImpl order = new OrderDAOImpl();
 
 //        додавання нових продуктів
 //        Product newProduct = new Product(7, "Sony", "Music", BigDecimal.valueOf(555.00).setScale(2));

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -12,6 +13,7 @@
         <module name="Lesson_10" />
         <module name="Lesson_3" />
         <module name="Lesson_4" />
+        <module name="Lesson_12" />
         <module name="Lesson_5" />
         <module name="Lesson_6" />
         <module name="Lesson_1" />
@@ -22,6 +24,7 @@
       <module name="Lesson_1" target="14" />
       <module name="Lesson_10" target="14" />
       <module name="Lesson_11" target="14" />
+      <module name="Lesson_12" target="14" />
       <module name="Lesson_3" target="14" />
       <module name="Lesson_4" target="14" />
       <module name="Lesson_5" target="14" />

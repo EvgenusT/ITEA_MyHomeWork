@@ -82,6 +82,13 @@
             <version>8.0.23</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.16</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -113,6 +120,7 @@
         <module>Lesson_8</module>
         <module>Lesson_10</module>
         <module>Lesson_11</module>
+        <module>Lesson_12</module>
 
     </modules>
 

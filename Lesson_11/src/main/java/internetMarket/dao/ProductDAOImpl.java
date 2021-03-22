@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductDAOImplement implements DAO<Product> {
+public class ProductDAOImpl implements DAO<Product> {
 
     @Override
     public Product findById(int id) {

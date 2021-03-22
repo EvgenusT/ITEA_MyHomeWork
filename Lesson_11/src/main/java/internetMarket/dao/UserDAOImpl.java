@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDAOImplement implements DAO<User> {
+public class UserDAOImpl implements DAO<User> {
 
     private User convertToModel(ResultSet resultSet) throws SQLException {
         int user_id = resultSet.getInt("user_id");
